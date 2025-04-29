@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:8000/api/auth/login';
   private baseUrl = 'http://localhost:8000/api/users';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getUsers(): Observable<any> {
     return this.http.get(`${this.baseUrl}/users`).pipe(

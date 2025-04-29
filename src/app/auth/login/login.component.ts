@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../core/auth/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: false,
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  hide:boolean = true;
+  hide: boolean = true;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -19,7 +19,7 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
@@ -33,8 +33,13 @@ export class LoginComponent {
         },
         error: (err) => {
           console.error('Login failed', err);
-          alert('Invalid username or password'); // Show an error message
-        }
+          if (err.status === 401) {
+            alert('Unauthorized: Please log in again.');
+            this.router.navigate(['/login']); // Redirect to login page on 401 error
+          } else {
+            alert('Invalid username or password'); // Show an error message for other cases
+          }
+        },
       });
     }
   }

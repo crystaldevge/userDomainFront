@@ -1,0 +1,11 @@
+<p>user-list works!</p>
+<div *ngIf="users.length > 0; else noUsers">
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.username }} ({{ user.lastName }})
+    </li>
+  </ul>
+</div>
+<ng-template #noUsers>
+  <p>No users found or you do not have permission to view them.</p>
+</ng-template>

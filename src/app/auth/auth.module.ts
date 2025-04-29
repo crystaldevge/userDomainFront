@@ -3,21 +3,17 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    MaterialModule,
+    ReactiveFormsModule,
   ],
-  exports: [
-    LoginComponent
-  ],
-
+  exports: [LoginComponent],
 })
-export class AuthModule { }
+export class AuthModule {}

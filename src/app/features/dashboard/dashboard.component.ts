@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../core/auth/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 interface User {
   username: string;
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching users:', err);
-      }
+      },
     });
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './user-profile.component';
 import { UserProfileRoutingModule } from './user-profile-routing.module';
+import { MaterialModule } from '../../material/material.module';
 
 
 
@@ -9,7 +10,8 @@ import { UserProfileRoutingModule } from './user-profile-routing.module';
   declarations: [UserProfileComponent],
   imports: [
     CommonModule,
-    UserProfileRoutingModule
+    UserProfileRoutingModule,
+    MaterialModule
   ],
   exports: [UserProfileComponent],
 })

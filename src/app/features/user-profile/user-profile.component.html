@@ -1,24 +1,49 @@
 <div class="user-profile">
-  <h1>User Profile</h1>
-
-  <h2>Basic Information</h2>
-  <p><strong>Username:</strong> {{ userProfile.username }}</p>
-  <p><strong>First Name:</strong> {{ userProfile.firstName }}</p>
-  <p><strong>Last Name:</strong> {{ userProfile.lastName }}</p>
-
-  <button (click)="loadPermissions()">Load Permissions</button>
-  <h2>Permissions</h2>
-  <ul>
-    <li *ngFor="let permission of userPermissions">
-      {{ permission.permissionName }}
-    </li>
-  </ul>
-
-  <button (click)="loadModules()">Load Modules</button>
-  <h2>Modules</h2>
-  <ul>
-    <li *ngFor="let module of userModules">
-      {{ module.moduleName }} {{ module.isActive ? '(Active)' : '(Inactive)' }}
-    </li>
-  </ul>
-</div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>User Profile</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>Basic Information</h2>
+        <mat-list>
+          <mat-list-item>
+            <strong>Username:</strong> {{ userProfile.username }}
+          </mat-list-item>
+          <mat-list-item>
+            <strong>First Name:</strong> {{ userProfile.firstName }}
+          </mat-list-item>
+          <mat-list-item>
+            <strong>Last Name:</strong> {{ userProfile.lastName }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="permissions-card">
+      <mat-card-header>
+        <!-- <mat-card-title>Permissions</mat-card-title> -->
+        <button mat-raised-button color="primary" (click)="loadPermissions()">Load Permissions</button>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let permission of userPermissions">
+            {{ permission.permissionName }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="modules-card">
+      <mat-card-header>
+        <!-- <mat-card-title>Modules</mat-card-title> -->
+        <button mat-raised-button color="primary" (click)="loadModules()">Load Modules</button>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let module of userModules">
+            {{ module.moduleName }} {{ module.isActive ? '(Active)' : '(Inactive)' }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>

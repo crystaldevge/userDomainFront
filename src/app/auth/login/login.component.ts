@@ -28,8 +28,15 @@ export class LoginComponent {
       const { username, password } = this.loginForm.value;
       this.authService.login(username, password).subscribe({
         next: (response) => {
-          localStorage.setItem('token', response.data.token);
-          this.router.navigate(['/profile']); // Redirect to dashboard on successful login
+          if (response.isSuccess) {
+             localStorage.setItem('token', response.data.token); // Save token
+            this.router.navigate(['/profile']); // Redirect to profile
+          } else {
+            // Login failed
+            if (response.showMessage) {
+              alert(response.message.text); // Show error message
+            }
+          }
         },
         error: (err) => {
           console.error('Login failed', err);

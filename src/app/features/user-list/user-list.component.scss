@@ -1,0 +1,63 @@
+.user-list-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.255);
+  }
+
+  /* Title Styling */
+.user-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Filter Input Styling */
+  .user-list-filter {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styling */
+  .user-list-table {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+  }
+  /* Header Row Styling */
+.user-list-header-row {
+    background-color: #f0f0f0;
+    color: #444444;
+  }
+
+  /* Header Cell Styling */
+.user-list-header {
+    color: #454545;
+    text-align: left;
+  }
+
+  .user-list-row:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  .mat-elevation-z8 {
+    border-radius: 8px;
+  }
+
+  /* filepath: c:\Users\l.nodia\Desktop\MyFiles\user-management\src\app\features\user-list\user-list.component.scss */
+
+/* Active Status Styling */
+.status-active {
+    color: #32a838; /* Dark green text */
+
+  }
+  
+  /* Inactive Status Styling */
+  .status-inactive {
+    color: #ed2929; /* Dark red text */
+
+  }

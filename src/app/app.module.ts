@@ -9,23 +9,32 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './core/interceptors/auth-interceptor.service';
 import { MaterialModule } from './material/material.module';
 import { ErrorInterceptorService } from './core/interceptors/error-interceptor.service';
+import { DashboardModule } from './features/dashboard/dashboard.module';
+import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, UserProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, // Add HttpClientModule here
     CoreModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    DashboardModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }, // Auth Interceptor
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true } // Error Interceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    }, // Auth Interceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptorService,
+      multi: true,
+    }, // Error Interceptor
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

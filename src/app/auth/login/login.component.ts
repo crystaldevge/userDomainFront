@@ -28,14 +28,17 @@ export class LoginComponent {
       const { username, password } = this.loginForm.value;
       this.authService.login(username, password).subscribe({
         next: (response) => {
-          localStorage.setItem('token', response.token);
-          this.router.navigate(['/dashboard']);
+          localStorage.setItem('token', response.data.token);
+          this.router.navigate(['/profile']); // Redirect to dashboard on successful login
         },
         error: (err) => {
           console.error('Login failed', err);
           if (err.status === 401) {
             alert('Unauthorized: Please log in again.');
             this.router.navigate(['/login']); // Redirect to login page on 401 error
+          } else if (err.status === 403) {
+            alert('Permissiion denied!');
+            // Show an error message for 403 error
           } else {
             alert('Invalid username or password'); // Show an error message for other cases
           }

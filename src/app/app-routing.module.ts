@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { guestGuardGuard } from './core/guards/guest-guard.guard';
 import { authGuardGuard } from './core/guards/auth-guard.guard';
+import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/dashboard/dashboard.module').then((m) => m.DashboardModule),
     canActivate: [authGuardGuard],
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [authGuardGuard], // Protect the route
   },
   { path: '**', redirectTo: '/login' }, // Wildcard route for undefined paths
 ];

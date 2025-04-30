@@ -8,19 +8,21 @@ import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
   exports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+    MatCheckboxModule
   ],
 })
 export class MaterialModule {}

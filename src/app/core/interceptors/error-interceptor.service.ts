@@ -20,7 +20,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
           this.router.navigate(['/login']); // Redirect to login page
         } else if (error.status === 403) {
           // Handle 403 Forbidden
-          alert('Forbidden: You do not have permission to access this resource.');
+          alert('Forbidden: You do not have permission to access this resource!');
         } else {
           // Handle other errors
           alert('An unexpected error occurred.');

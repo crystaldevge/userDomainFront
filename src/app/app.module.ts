@@ -10,10 +10,10 @@ import { AuthInterceptorService } from './core/interceptors/auth-interceptor.ser
 import { MaterialModule } from './material/material.module';
 import { ErrorInterceptorService } from './core/interceptors/error-interceptor.service';
 import { DashboardModule } from './features/dashboard/dashboard.module';
-import { UserProfileComponent } from './features/user-profile/user-profile.component';
+import { UserProfileModule } from './features/user-profile/user-profile.module';
 
 @NgModule({
-  declarations: [AppComponent, UserProfileComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +21,8 @@ import { UserProfileComponent } from './features/user-profile/user-profile.compo
     CoreModule,
     SharedModule,
     MaterialModule,
-    DashboardModule
+    DashboardModule,
+    UserProfileModule, 
   ],
   providers: [
     {

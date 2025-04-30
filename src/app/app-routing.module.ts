@@ -19,8 +19,10 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: UserProfileComponent,
-    canActivate: [authGuardGuard], // Protect the route
+    loadChildren: () =>
+      import('./features/user-profile/user-profile.module').then(
+        (m) => m.UserProfileModule
+      ),
   },
   { path: '**', redirectTo: '/login' }, // Wildcard route for undefined paths
 ];

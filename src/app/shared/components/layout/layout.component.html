@@ -1,0 +1,23 @@
+<mat-drawer-container class="drawer-container" autosize>
+  <!-- Sidebar -->
+  <mat-drawer #drawer class="drawer-sidenav" mode="side" opened>
+    <app-sidebar></app-sidebar>
+
+  </mat-drawer>
+
+  <!-- Main Content -->
+  <div class="sidenav-content">
+    <app-header></app-header>
+    <div class="content">
+      <!-- Toggle Button -->
+      <router-outlet></router-outlet> 
+      <button mat-button (click)="drawer.toggle()" class="toggle-button">
+        <mat-icon>{{
+          drawer.opened ? "keyboard_arrow_left" : "keyboard_arrow_right"
+        }}</mat-icon>
+      </button>
+      <ng-content></ng-content>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</mat-drawer-container>

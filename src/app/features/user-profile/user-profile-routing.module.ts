@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile.component';
 
 const routes: Routes = [
-  { path: '', component: UserProfileComponent }, // Default route for the DashboardModule
+  { path: '', component: UserProfileComponent }, 
 ];
 
 

@@ -1,0 +1,18 @@
+<app-layout>
+  <!-- filepath: c:\Users\l.nodia\Desktop\MyFiles\user-management\src\app\features\role-management\role-management.component.html -->
+  <div class="role-management">
+    <h1>Role Management</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let role of roles">
+        <span>{{ role.name }}</span>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="managePermissions(role)"
+        >
+          Manage Permissions
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</app-layout>

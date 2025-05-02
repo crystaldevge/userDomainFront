@@ -1,0 +1,15 @@
+<app-layout>
+  <div class="role-permissions">
+    <h1>Manage Permissions for {{ roleName }}</h1>
+    <mat-list>
+      <mat-list-item *ngFor="let permission of permissions">
+        <span>{{ permission.name }}</span>
+        <mat-slide-toggle
+          [checked]="permission.enabled"
+          (change)="togglePermission(permission)"
+        >
+        </mat-slide-toggle>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</app-layout>

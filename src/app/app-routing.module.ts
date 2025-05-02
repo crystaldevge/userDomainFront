@@ -14,7 +14,9 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () =>
-      import('./features/dashboard/dashboard.module').then((m) => m.DashboardModule),
+      import('./features/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
     canActivate: [authGuardGuard],
   },
   {
@@ -29,6 +31,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/user-details/user-details.module').then(
         (m) => m.UserDetailsModule
+      ),
+  },
+  {
+    path: 'roles',
+    loadChildren: () =>
+      import('./features/role-management/role-management.module').then(
+        (m) => m.RoleManagementModule
       ),
   },
   { path: '**', redirectTo: '/login' }, // Wildcard route for undefined paths

@@ -11,3 +11,12 @@
   button {
     margin-left: 8px;
   }
+
+  .manage-role{
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .manage-role:hover{
+    transform: scale(1.5); 
+    color: #33339f;
+  }

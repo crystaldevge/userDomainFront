@@ -1,43 +1,63 @@
 <app-layout>
-    <div class="role-management">
-      <h1>Role Management</h1>
-      <button mat-raised-button color="primary" (click)="toggleCreateMode()">Create Role</button>
-  
-      <!-- Input field for creating a new role -->
-      <div *ngIf="creatingRole" class="create-role">
-        <mat-form-field>
-          <input matInput [(ngModel)]="newRoleName" placeholder="Enter Role Name" />
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="createRole()">Save</button>
-        <button mat-raised-button color="warn" (click)="cancelCreate()">Cancel</button>
-      </div>
-  
-      <mat-list>
-        <mat-list-item *ngFor="let role of roles">
-          <!-- Display mode -->
-          <div *ngIf="editingRoleId !== role.id">
-            <span>{{ role.name }}</span>
-            <button mat-icon-button color="primary" (click)="startEditing(role.id)">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button color="warn" (click)="deleteRole(role)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div>
-  
-          <!-- Edit mode -->
-          <div *ngIf="editingRoleId === role.id">
-            <mat-form-field>
-              <input matInput [(ngModel)]="role.name" placeholder="Edit Role Name" />
-            </mat-form-field>
-            <button mat-icon-button color="primary" (click)="saveRole(role)">
-              <mat-icon>check</mat-icon>
-            </button>
-            <button mat-icon-button color="warn" (click)="cancelEditing()">
-              <mat-icon>close</mat-icon>
-            </button>
-          </div>
-        </mat-list-item>
-      </mat-list>
+  <div class="role-management">
+    <h1>Role Management</h1>
+    <button mat-raised-button color="primary" (click)="toggleCreateMode()">
+      Create Role
+    </button>
+
+    <!-- Input field for creating a new role -->
+    <div *ngIf="creatingRole" class="create-role">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="newRoleName"
+          placeholder="Enter Role Name"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="createRole()">
+        Save
+      </button>
+      <button mat-raised-button color="warn" (click)="cancelCreate()">
+        Cancel
+      </button>
     </div>
-  </app-layout>
+
+    <mat-list>
+      <mat-list-item *ngFor="let role of roles">
+        <!-- Display mode -->
+        <div *ngIf="editingRoleId !== role.id">
+          <span class="manage-role" (click)="managePermissions(role)">{{
+            role.name
+          }}</span>
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="startEditing(role.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteRole(role)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <!-- Edit mode -->
+        <div *ngIf="editingRoleId === role.id">
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="role.name"
+              placeholder="Edit Role Name"
+            />
+          </mat-form-field>
+          <button mat-icon-button color="primary" (click)="saveRole(role)">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="cancelEditing()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</app-layout>

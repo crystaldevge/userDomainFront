@@ -1,9 +1,4 @@
 .user-list-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: auto ;
-    padding: 20px;
-    border-radius: 8px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.255);
   }
 
@@ -48,7 +43,6 @@
     border-radius: 8px;
   }
 
-  /* filepath: c:\Users\l.nodia\Desktop\MyFiles\user-management\src\app\features\user-list\user-list.component.scss */
 
 /* Active Status Styling */
 .status-active {
@@ -60,4 +54,18 @@
   .status-inactive {
     color: #ed2929; /* Dark red text */
 
+  }
+  .title-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .title-header mat-form-field {
+    width: 150px; /* Adjust the width as needed */
+    margin-top: 4px; /* Add some spacing between the label and input */
+  }
+  
+  .small-input input {
+    font-size: 12px; /* Adjust the font size for a smaller input */
   }

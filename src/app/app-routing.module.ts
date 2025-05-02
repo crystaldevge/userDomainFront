@@ -24,6 +24,13 @@ const routes: Routes = [
         (m) => m.UserProfileModule
       ),
   },
+  {
+    path: 'user-details/:id',
+    loadChildren: () =>
+      import('./features/user-details/user-details.module').then(
+        (m) => m.UserDetailsModule
+      ),
+  },
   { path: '**', redirectTo: '/login' }, // Wildcard route for undefined paths
 ];
 

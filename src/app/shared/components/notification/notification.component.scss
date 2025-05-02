@@ -1,0 +1,46 @@
+/* filepath: c:\Users\l.nodia\Desktop\MyFiles\user-management\src\app\shared\components\notification\notification.component.scss */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .notification {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .notification.success {
+    background-color: #4caf50;
+  }
+  
+  .notification.error {
+    background-color: #f44336;
+  }
+  
+  .notification.info {
+    background-color: #2196f3;
+  }
+  
+  .notification.warning {
+    background-color: #ff9800;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

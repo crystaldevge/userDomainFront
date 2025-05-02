@@ -7,12 +7,14 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { MaterialModule } from '../material/material.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
+import { NotificationComponent } from './components/notification/notification.component';
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
     SidebarComponent,
+    NotificationComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, MaterialModule, RouterModule],
   exports: [
@@ -22,6 +24,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     LayoutComponent,
     SidebarComponent,
+    NotificationComponent
   ],
 })
 export class SharedModule {}

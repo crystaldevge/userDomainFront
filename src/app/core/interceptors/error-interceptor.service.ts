@@ -3,24 +3,25 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpErrorResponse
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { NotificationService } from '../services/notification.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ErrorInterceptorService implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private notificationService: NotificationService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // Handle 401 Unauthorized
-          alert('Unauthorized: Redirecting to login page.');
+          this.notificationService.error('Unauthorized: Redirecting to login page.');
           localStorage.removeItem('token'); // Clear the token
           this.router.navigate(['/login']); // Redirect to login page
         } else if (error.status === 403) {
           // Handle 403 Forbidden
-          alert('Forbidden: You do not have permission to access this resource!');
+          this.notificationService.warning('Forbidden: You do not have permission to access this resource!');
         } else {
           // Handle other errors
           alert('An unexpected error occurred.');

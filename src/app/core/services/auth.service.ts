@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
+import { NotificationService } from './notification.service';
 interface Permission {
   id: number; // Replace with actual properties
   name: string; // Replace with actual properties
@@ -12,7 +13,10 @@ interface Permission {
 export class AuthService {
   private apiUrl = 'http://localhost:8000/api/auth/login';
   private baseUrl = 'http://localhost:8000/api/users';
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private notificationService: NotificationService
+  ) {}
 
   getPermissions(): Observable<any> {
     return this.http.get(
@@ -34,13 +38,15 @@ export class AuthService {
   }
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log('Error occurred:', error); // Log the error for debugging
-    
+
     if (error.status === 401) {
-      alert('Unauthorized: Please log in again.');
+      this.notificationService.error('Unauthorized: Please log in again.');
     } else if (error.status === 403) {
-      alert('Forbidden: You do not have permission to access this resource.');
+      this.notificationService.warning(
+        'Forbidden: You do not have permission to access this resource.'
+      );
     } else {
-      alert('An unexpected error occurred.');
+      this.notificationService.error('An unexpected error occurred.');
     }
     return throwError(() => error);
   }

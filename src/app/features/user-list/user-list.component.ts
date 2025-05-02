@@ -66,7 +66,8 @@ export class UserListComponent implements OnInit {
   loadUsers(skip: number, fetch: number): void {
     this.authService.getUsers(skip, fetch).subscribe({
       next: (data) => {
-
+        console.log('Fetched users:', data.data.userList); // Check the response data
+        
         this.dataSource.data = data.data.userList; // Assign the user list to the data source
         this.totalUsers = data.data.userList.total;
         this.dataSource.paginator = this.paginator; // Assign paginator

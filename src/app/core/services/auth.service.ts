@@ -1,12 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 import { NotificationService } from './notification.service';
-interface Permission {
-  id: number; // Replace with actual properties
-  name: string; // Replace with actual properties
-}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +13,7 @@ export class AuthService {
     private http: HttpClient,
     private notificationService: NotificationService
   ) {}
+
 
   getPermissions(): Observable<any> {
     return this.http.get(

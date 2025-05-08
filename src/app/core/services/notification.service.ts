@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-export interface Notification {
-  type: 'success' | 'error' | 'info' | 'warning';
-  message: string;
-}
+import { Notification } from '../interfaces/notification.interface';
+
 @Injectable({
   providedIn: 'root',
 })

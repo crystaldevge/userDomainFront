@@ -11,7 +11,7 @@ export class UserService {
   private url = `${environment.apiUrl}/users`;
   constructor(
     private http: HttpClient,
-    private notificationService: NotificationService
+    private notify: NotificationService
   ) {}
 
   getUserProfile(): Observable<any> {
@@ -27,13 +27,13 @@ export class UserService {
     console.log('Error occurred:', error); // Log the error for debugging
 
     if (error.status === 401) {
-      this.notificationService.error('Unauthorized: Please log in again.');
+      this.notify.error('Unauthorized: Please log in again.');
     } else if (error.status === 403) {
-      this.notificationService.warning(
+      this.notify.warning(
         'Forbidden: You do not have permission to access this resource.'
       );
     } else {
-      this.notificationService.error('An unexpected error occurred.');
+      this.notify.error('An unexpected error occurred.');
     }
     return throwError(() => error);
   }

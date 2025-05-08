@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService, Notification } from '../../../core/services/notification.service';
+import { NotificationService } from '../../../core/services/notification.service';
+import { Notification } from '../../../core/interfaces/notification.interface';
 
 @Component({
   selector: 'app-notification',
@@ -10,11 +11,11 @@ import { NotificationService, Notification } from '../../../core/services/notifi
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];
 
-  constructor(private notificationService: NotificationService) {}
+  constructor(private notify: NotificationService) {}
 
   ngOnInit(): void {
     // Subscribe to notifications
-    this.notificationService.notifications$.subscribe((notification) => {
+    this.notify.notifications$.subscribe((notification) => {
       this.notifications.push(notification);
 
       // Automatically remove the notification after 3 seconds

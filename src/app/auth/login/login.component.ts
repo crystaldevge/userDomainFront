@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../core/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private notify: NotificationService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -29,25 +31,25 @@ export class LoginComponent {
       this.authService.login(username, password).subscribe({
         next: (response) => {
           if (response.isSuccess) {
-             localStorage.setItem('token', response.data.token); // Save token
+            localStorage.setItem('token', response.data.token); // Save token
             this.router.navigate(['/profile']); // Redirect to profile
           } else {
             // Login failed
             if (response.showMessage) {
-              alert(response.message.text); // Show error message
+              this.notify.error(response.message.text); // Show error message using notification service
             }
           }
         },
         error: (err) => {
           console.error('Login failed', err);
           if (err.status === 401) {
-            alert('Unauthorized: Please log in again.');
+            this.notify.error('Unauthorized: Please log in again.'); // Show error message for 401 error
             this.router.navigate(['/login']); // Redirect to login page on 401 error
           } else if (err.status === 403) {
-            alert('Permissiion denied!');
+            this.notify.error('Permission denied!'); // Show error message for 403 error
             // Show an error message for 403 error
           } else {
-            alert('Invalid username or password'); // Show an error message for other cases
+            this.notify.error('Invalid username or password'); // Show error message for invalid credentials
           }
         },
       });

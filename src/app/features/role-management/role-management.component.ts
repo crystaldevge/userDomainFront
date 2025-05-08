@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RoleService } from '../../core/services/role.service';
+import { NotificationService } from '../../core/services/notification.service';
 
 @Component({
   selector: 'app-role-management',
@@ -13,7 +14,11 @@ export class RoleManagementComponent {
   editingRoleId: number | null = null;
   creatingRole: boolean = false; // Track if the create mode is active
   newRoleName: string = ''; // Store the new role name
-  constructor(private router: Router, private roleService: RoleService) {}
+  constructor(
+    private router: Router,
+    private roleService: RoleService,
+    private notify: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.fetchRoles();
@@ -25,7 +30,7 @@ export class RoleManagementComponent {
 
   createRole(): void {
     if (!this.newRoleName.trim()) {
-      alert('Role name cannot be empty!');
+      this.notify.error('Role name cannot be empty!');
       return;
     }
 

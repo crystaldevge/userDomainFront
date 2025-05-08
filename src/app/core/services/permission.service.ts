@@ -10,6 +10,8 @@ export class PermissionService {
   constructor(private http: HttpClient) {}
   private url = environment.apiUrl;
   getPermissionsByRoleId(roleId: number): Observable<any> {
+    console.log(`${this.url}/${roleId}/permissions`);
+    
     return this.http.get<any>(
       `${this.url}/${roleId}/permissions`
     );

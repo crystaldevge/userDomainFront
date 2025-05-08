@@ -8,7 +8,8 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class ModuleService {
-  private url = `${environment.apiUrl}/users/authorized`;
+  private url = `${environment.apiUrl}/module/authorized`;
+
   constructor(private http: HttpClient) {}
   getModules(): Observable<any> {
     return this.http

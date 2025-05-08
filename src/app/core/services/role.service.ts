@@ -1,17 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RoleService {
-  private apiUrl = 'http://localhost:8000/api/roles';
+  private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+   
+  }
 
   getRoleList(): Observable<any> {
-    return this.http.get<any[]>(`${this.apiUrl}/roles`);
+    console.log(`${this.apiUrl}/roles/roles`);
+    
+    return this.http.get<any[]>(`${this.apiUrl}/roles/roles`);
   }
   createRole(role: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/createRole`, role);

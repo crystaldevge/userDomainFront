@@ -21,6 +21,8 @@ export class RolePermissionsComponent {
   ngOnInit(): void {
     this.roleId = +this.route.snapshot.paramMap.get('roleId')!;
     console.log('Managing permissions for role ID:', this.roleId);
+    console.log('this.roleId', this.roleId);
+    
     // Fetch permissions for the role from the server
     this.route.queryParams.subscribe((params) => {
       this.roleName = params['roleName'];

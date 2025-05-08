@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -41,7 +42,7 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator; // Paginator reference
   @ViewChild(MatSort) sort!: MatSort; // Sort reference
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) {}
   ngOnInit(): void {
     this.loadUsers(this.currentPage, this.pageSize);
   }
@@ -64,7 +65,7 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user-details', user.id]);
   }
   loadUsers(skip: number, fetch: number): void {
-    this.authService.getUsers(skip, fetch).subscribe({
+    this.userService.getUsers(skip, fetch).subscribe({
       next: (data) => {
         console.log('Fetched users:', data.data.userList); // Check the response data
         

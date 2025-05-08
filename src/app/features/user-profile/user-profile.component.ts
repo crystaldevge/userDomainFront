@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
+import { UserService } from '../../core/services/user.service';
+import { ModuleService } from '../../core/services/module.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -12,7 +14,11 @@ export class UserProfileComponent implements OnInit {
   userPermissions: any[] = [];
   userModules: any[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private moduleService: ModuleService
+  ) {}
 
   ngOnInit(): void {
     this.loadUserProfile();
@@ -32,7 +38,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   loadModules(): void {
-    this.authService.getModules().subscribe({
+    this.moduleService.getModules().subscribe({
       next: (modules) => {
         this.userModules = Array.isArray(modules.data.modules)
           ? modules.data.modules
@@ -45,7 +51,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   loadUserProfile(): void {
-    this.authService.getUserProfile().subscribe({
+    this.userService.getUserProfile().subscribe({
       next: (profile) => {
         this.userProfile = profile.data.userProfile;
       },

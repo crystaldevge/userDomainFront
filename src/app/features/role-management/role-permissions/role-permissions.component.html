@@ -2,13 +2,45 @@
   <div class="role-permissions">
     <h1>Manage Permissions for {{ roleName }}</h1>
     <mat-list>
-      <mat-list-item *ngFor="let permission of permissions">
-        <span>{{ permission.name }}</span>
-        <mat-slide-toggle
-          [checked]="permission.enabled"
-          (change)="togglePermission(permission)"
-        >
-        </mat-slide-toggle>
+      <mat-list-item *ngFor="let permission of permissions" class="permission-item">
+        <div class="permission-container">
+          <!-- Permission Name -->
+          <div class="permission-name">
+            <span>{{ permission.name }}</span>
+          </div>
+
+          <!-- Toggles -->
+          <div class="permission-toggles">
+            <!-- Case 1: Separate toggles for installment and loan -->
+            <div *ngIf="permission.value && permission.value.installment !== undefined && permission.value.loan !== undefined">
+              <div>
+                <span>Installment</span>
+                <mat-slide-toggle
+                  [checked]="permission.value.installment === 1"
+                  (change)="togglePermission(permission, 'installment')"
+                >
+                </mat-slide-toggle>
+              </div>
+              <div>
+                <span>Loan</span>
+                <mat-slide-toggle
+                  [checked]="permission.value.loan === 1"
+                  (change)="togglePermission(permission, 'loan')"
+                >
+                </mat-slide-toggle>
+              </div>
+            </div>
+
+            <!-- Case 2: Single toggle for numeric value -->
+            <div *ngIf="permission.value === 1 || permission.value === 0 || permission.value === null">
+              <mat-slide-toggle
+                [checked]="permission.value === 1"
+                (change)="togglePermission(permission)"
+              >
+              </mat-slide-toggle>
+            </div>
+          </div>
+        </div>
       </mat-list-item>
     </mat-list>
   </div>

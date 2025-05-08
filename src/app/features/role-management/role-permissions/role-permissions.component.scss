@@ -1,0 +1,36 @@
+/* filepath: c:\Users\l.nodia\Desktop\MyFiles\user-management\src\app\features\role-management\role-permissions\role-permissions.component.scss */
+
+.role-permissions {
+    max-width: 800px;
+    padding: 16px;
+    .permission-item {
+      display: flex;
+      justify-content: space-between; /* Align name and toggles on opposite sides */
+      align-items: center; /* Vertically align items */
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0; /* Optional: Add a separator between items */
+    }
+  
+    .permission-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; /* Ensure the container spans the full width */
+    }
+  
+    .permission-name {
+      flex: 1; /* Take up available space */
+      text-align: left; /* Align text to the left */
+      font-weight: 500; /* Optional: Make the text slightly bold */
+    }
+  
+    .permission-toggles {
+      display: flex;
+      flex-direction: column; /* Stack toggles vertically */
+      gap: 8px; /* Add spacing between toggles */
+      text-align: right; /* Align toggles to the right */
+    }
+  
+    mat-slide-toggle {
+      margin-left: 8px; /* Add spacing between toggle and label */
+    }
+  }

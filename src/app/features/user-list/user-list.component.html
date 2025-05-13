@@ -290,12 +290,14 @@
   </table>
 
   <!-- Pagination -->
+   <!-- (page)="onPageChange($event)" -->
+   <!-- [pageSizeOptions]="[5, 10, 20, 50, 100, 3000]" -->
   <mat-paginator
     [length]="totalUsers"
     [pageSize]="pageSize"
-    [pageSizeOptions]="[5, 10, 20, 50, 100, 3000]"
     showFirstLastButtons
-    (page)="onPageChange($event)"
+    
+    
     class="user-list-paginator"
   ></mat-paginator>
 </div>

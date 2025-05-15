@@ -1,0 +1,36 @@
+.main-role-module-container{
+    padding: 16px;
+    .module-name{
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        padding: 8px 0;
+    }
+    .save-button{
+        background-color: #3f51b5;
+        color:#e0e0e0;
+    }
+    .module-Container{
+      width: 100%;
+      font-weight: 500; 
+    }
+    .module-item{
+       text-align: left;
+       display: flex;
+       justify-content: space-between;
+       align-items: center; 
+       padding: 8px 0;
+       border-bottom: 1px solid #e0e0e0;
+    }
+ 
+}
+.snackbar-success {
+    background-color: #4caf50;
+    color: #fff;
+    
+  }
+  
+  .snackbar-error {
+    background-color: #f44336;
+    color: #fff;
+  }

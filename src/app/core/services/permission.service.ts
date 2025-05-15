@@ -16,4 +16,11 @@ export class PermissionService {
       `${this.url}/${roleId}/permissions`
     );
   }
+
+  setUserPermissions(data: any): Observable<any> {
+    return this.http.post(`${this.url}/permission/setUserPermission`, data);
+  }
+  
+
+
 }

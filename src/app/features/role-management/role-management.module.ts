@@ -7,9 +7,10 @@ import { RolePermissionsComponent } from './role-permissions/role-permissions.co
 import { MaterialModule } from '../../material/material.module';
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { RoleModulesComponent } from './role-modules/role-modules.component';
 
 @NgModule({
-  declarations: [RoleManagementComponent, RolePermissionsComponent],
+  declarations: [RoleManagementComponent, RolePermissionsComponent, RoleModulesComponent],
   imports: [
     CommonModule,
     RoleManagementRoutingModule,

@@ -65,6 +65,9 @@ export class UserListComponent implements OnInit {
     }
     this.router.navigate(['/user-details', user.id]);
   }
+
+
+
   // loadUsers(skip: number, fetch: number): void {
   //   this.userService.getUsers(skip, fetch).subscribe({
   //     next: (data) => {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
@@ -8,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class UserDetailsComponent {
 
+
+  constructor(private router: Router) {}
+
+
+onReturn(): void{
+  console.log("is clicked")
+  this.router.navigate(['/dashboard']);
+}
 }

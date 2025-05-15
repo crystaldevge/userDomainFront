@@ -1,0 +1,22 @@
+<div class="main-role-module-container">
+    <h1>Manage Modules for {{ roleName }}</h1>
+    <mat-list class="module-item-container">
+      <mat-list-item *ngFor="let module of modules" class="module-item">
+        <div class="module-Container">
+          <div class="module-name">            
+              <span>{{ module.moduleName }}</span>          
+              <!-- <mat-slide-toggle>
+              </mat-slide-toggle> 
+                          -->
+              <mat-checkbox class="example-margin"
+              [checked]="module.isActive"
+              (change)="toggleModule(module)"
+              >
+              </mat-checkbox>
+          </div>
+        </div>
+      </mat-list-item>
+      <button mat-flat-button class="save-button" (click)="saveModules()">Save</button>
+    </mat-list>
+  </div>
+  

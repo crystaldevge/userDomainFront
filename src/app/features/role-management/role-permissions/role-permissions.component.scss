@@ -3,18 +3,26 @@
 .role-permissions {
     max-width: 800px;
     padding: 16px;
+    .Save{
+      background-color: #3f51b5;
+      color:#e0e0e0;
+    }
     .permission-item {
       display: flex;
       justify-content: space-between; /* Align name and toggles on opposite sides */
       align-items: center; /* Vertically align items */
       padding: 8px 0;
       border-bottom: 1px solid #e0e0e0; /* Optional: Add a separator between items */
+      height: auto !important;      
+      align-items: stretch;
     }
   
     .permission-container {
       display: flex;
       justify-content: space-between;
       width: 100%; /* Ensure the container spans the full width */
+      flex-wrap: wrap;
+      overflow: visible;
     }
   
     .permission-name {
@@ -28,9 +36,10 @@
       flex-direction: column; /* Stack toggles vertically */
       gap: 8px; /* Add spacing between toggles */
       text-align: right; /* Align toggles to the right */
+      max-height: 100%; // or a specific height if needed
+      overflow: visible;
     }
-  
-    mat-slide-toggle {
+    mat-checkbox {
       margin-left: 8px; /* Add spacing between toggle and label */
     }
   }

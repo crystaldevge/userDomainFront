@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PermissionService } from '../../../core/services/permission.service';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-role-permissions',
@@ -15,7 +16,8 @@ export class RolePermissionsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private permissionService: PermissionService
+    private permissionService: PermissionService,
+    private notify: NotificationService 
   ) {}
 
   ngOnInit(): void {
@@ -89,4 +91,53 @@ export class RolePermissionsComponent {
     console.log('Updated permission:', permission);
     // Optionally, send the updated permission to the server here
   }
+
+  savePermissions(): void {
+    const activePermissions = this.permissions
+      .filter(p => p.value !== undefined && p.value !== null)
+      .map(i => {
+        let cleanedValue: any;
+  
+        if (typeof i.value === 'object' && i.value !== null) {
+          cleanedValue = {};
+          for (const key in i.value) {
+            if (i.value[key] === 1) {
+              cleanedValue[key] = 1;
+            }
+          }
+        } else {
+          cleanedValue = i.value;
+        }
+  
+        return {
+          id: i.id,
+          value: cleanedValue
+        };
+      })
+      .filter(p => {
+        if (typeof p.value === 'object') {
+          return Object.keys(p.value).length > 0;
+        }
+        return p.value === 1;
+      });
+  
+    const requestBody = {
+      roleId: this.roleId,
+      activePermissions
+    };
+  
+    this.permissionService.setUserPermissions(requestBody).subscribe({
+      next: (res) => {
+        console.log('Permissions saved successfully:', res);
+        this.notify.success('Permissions saved successfully!');
+      },
+      error: (err) => {
+        console.error('Error saving permissions:', err);
+        this.notify.error('Failed to save permissions');
+      }
+    });
+  }
+  
+  
+
 }

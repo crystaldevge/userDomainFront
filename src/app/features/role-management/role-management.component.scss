@@ -18,6 +18,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%; /* Ensure the container spans the full width */
+    align-items: center;
+    min-width: 0; //
   }
   .manage-role {
     flex: 1; /* Take up available space */
@@ -25,6 +27,8 @@
     font-weight: 500; /* Optional: Make the text slightly bold */
     cursor: pointer;
     transition: transform 0.3s;
+
+  
   }
 
   .manage-role:hover {

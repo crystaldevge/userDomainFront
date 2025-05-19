@@ -15,6 +15,7 @@ export class RoleManagementComponent {
   editingRoleId: number | null = null;
   creatingRole: boolean = false; // Track if the create mode is active
   newRoleName: string = ''; // Store the new role name
+  originalRoleName: string = '';
   constructor(
     private router: Router,
     private roleService: RoleService,
@@ -66,38 +67,59 @@ export class RoleManagementComponent {
     this.creatingRole = false; // Exit create mode
     this.newRoleName = ''; // Reset the input field
   }
-  updateRole(role: any): void {
-    const updatedRole = { ...role }; // Use the current role data for the update
-    console.log('Updating role:', updatedRole); // Log the updated role data
 
+  
+  updateRole(role: any): void {
+    const updatedRole = { ...role }; 
+  
     this.roleService.updateRole(role.id, updatedRole).subscribe({
-      next: (updated) => {
-        const index = this.roles.findIndex((r) => r.id === role.id);
-        if (index !== -1) {
-          this.roles[index] = updated;
+      next: (response) => {
+        if (response.isSuccess) {
+          const index = this.roles.findIndex((r) => r.id === role.id);
+          if (index !== -1) {
+           
+            this.roles[index] = { ...this.roles[index], ...updatedRole };
+          }
+          console.log('Role updated:', response);
+          this.notify.success(response.message?.text || 'Role updated successfully');
+        } else {
+          this.notify.error(response.message?.text || 'Failed to update role');
         }
-        console.log('Role updated:', updated);
       },
       error: (err) => {
         console.error('Error updating role:', err);
-      },
+        this.notify.error(err?.error?.message?.text || 'An error occurred while updating the role');
+        },
     });
   }
-  startEditing(roleId: number): void {
+  
+
+
+  startEditing(roleId: number, role: any): void {
     this.editingRoleId = roleId; // Set the role being edited
+    this.originalRoleName = role.name; 
   }
 
   saveRole(role: any): void {
     this.roleService.updateRole(role.id, { name: role.name }).subscribe({
-      next: (updated) => {
-        console.log('Role updated:', updated);
-        this.editingRoleId = null; // Exit edit mode
+      next: (response) => {
+        if (response.isSuccess) {
+          this.notify.success(response.message?.text || 'Role updated successfully');
+          this.editingRoleId = null;
+        } else {
+          this.notify.error(response.message?.text || 'Failed to update role');
+          role.name = this.originalRoleName; 
+        }
       },
       error: (err) => {
         console.error('Error updating role:', err);
+        this.notify.error(err?.error?.message?.text || 'An error occurred while updating the role');
+        role.name = this.originalRoleName; 
       },
     });
   }
+  
+  
 
   cancelEditing(): void {
     this.editingRoleId = null; // Exit edit mode without saving

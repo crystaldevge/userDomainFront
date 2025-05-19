@@ -8,13 +8,16 @@ import { MaterialModule } from '../material/material.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { NotificationComponent } from './components/notification/notification.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
     SidebarComponent,
-    NotificationComponent
+    NotificationComponent,
+    ConfirmDialogComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, MaterialModule, RouterModule],
   exports: [

@@ -19,13 +19,13 @@ export class RoleService {
     return this.http.get<any[]>(`${this.apiUrl}/roles/roles`);
   }
   createRole(role: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/createRole`, role);
+    return this.http.post<any>(`${this.apiUrl}/roles/createRole`, role);
   }
   updateRole(id: number, role: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, role);
+    return this.http.put<any>(`${this.apiUrl}/roles/${id}`, role);
   }
 
   deleteRole(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/roles/delete/${id}`);
   }
 }

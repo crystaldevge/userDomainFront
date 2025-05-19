@@ -27,6 +27,7 @@ import { UserDetailsModule } from './features/user-details/user-details.module';
     UserProfileModule,
     RoleManagementModule,
     UserDetailsModule,
+
   ],
   providers: [
     {

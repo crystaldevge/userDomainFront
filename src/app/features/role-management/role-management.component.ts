@@ -145,6 +145,9 @@ export class RoleManagementComponent {
   
     
     dialogRef.afterClosed().subscribe(result => {
+
+          (document.activeElement as HTMLElement)?.blur();
+
       if (result) {
         this.roleService.deleteRole(role.id).subscribe({
           next: (res) => {

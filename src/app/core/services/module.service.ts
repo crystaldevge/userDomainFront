@@ -25,7 +25,7 @@ export class ModuleService {
 
   getModules(): Observable<any> {
     return this.http
-      .get(`${this.url}/modules`)
+      .get(`${this.url}/module/authorized/modules`)
       .pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse): Observable<never> {

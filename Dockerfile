@@ -30,6 +30,6 @@ RUN npm run build --prod
 
 # Step 2: Serve with Nginx
 FROM nginx:alpine
-COPY --from=build /app/dist/<your-app-name> /usr/share/nginx/html
+COPY --from=build /app/dist/<user-management> /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

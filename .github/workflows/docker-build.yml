@@ -34,7 +34,10 @@
 #             matebukia/angular-frontend:${{ github.sha }}
 
 name: Build and Push to GHCR
-
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: crystaldevge/userdomainfront
+ 
 on:
   push:
     branches:

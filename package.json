@@ -1,6 +1,6 @@
 {
   "name": "user-management",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "scripts": {
     "ng": "ng",
     "start": "npx ng serve --host 0.0.0.0 --poll 1000",

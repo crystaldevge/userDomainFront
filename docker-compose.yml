@@ -1,16 +1,34 @@
-version: '3.8'
+# version: '3.8'
+
+# services:
+#   angular:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes:
+#       - .:/app
+#       - /app/node_modules  # Prevents overwriting node_modules in container
+#     ports:
+#       - "4200:4200"
+#     # command: "ng serve --host 0.0.0.0 --poll=2000 --port 4200 --disable-host-check"
+
+#     environment:
+#       - CHOKIDAR_USEPOLLING=true  # Needed for file watching in Docker
 
 services:
-  angular:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/app
-      - /app/node_modules  # Prevents overwriting node_modules in container
+  backend:
+    image: ghcr.io/crystaldevge/userdomainapi:latest
+    container_name: userdomainapi
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+  frontend:
+    image: ghcr.io/crystaldevge/userdomainfront:17
+    container_name: userdomainfront
     ports:
       - "4200:4200"
-    # command: "ng serve --host 0.0.0.0 --poll=2000 --port 4200 --disable-host-check"
+    depends_on:
+      - backend
 
-    environment:
-      - CHOKIDAR_USEPOLLING=true  # Needed for file watching in Docker

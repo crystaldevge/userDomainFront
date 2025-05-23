@@ -33,7 +33,7 @@
 #             matebukia/angular-frontend:${{ github.run_number }}
 #             matebukia/angular-frontend:${{ github.sha }}
 
-name: Build and Push to GHCR
+name: CI/CD Pipeline - Docker Build & Push
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: crystaldevge/userdomainfront

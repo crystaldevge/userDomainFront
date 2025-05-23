@@ -12,4 +12,4 @@ jobs:
           fetch-depth: 0
 
       - name: Version Bump Check
-        run: git diff origin/master HEAD -- package.json | grep version
+        run: git diff origin/main HEAD -- package.json | grep version

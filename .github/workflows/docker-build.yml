@@ -36,7 +36,7 @@
 name: CI/CD Pipeline - Docker Build & Push
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: crystaldevge/userdomainfront
+  IMAGE_NAME: userdomainfront
  
 on:
   push:

@@ -13,13 +13,14 @@ jobs:
         with:
           fetch-depth: 0  # Ensure full git history
 
-      - name: Get previous commit
-        id: prev_commit
-        run: echo "PREV_SHA=$(git rev-parse HEAD^1)" >> $GITHUB_ENV
+      - name: Set PREV_SHA
+        id: prev_sha
+        run: echo "PREV_SHA=$(git rev-parse HEAD^)" >> "$GITHUB_ENV"
 
-      - name: Check if version was bumped
-        run: |
-          if ! git diff ${{ env.PREV_SHA }} HEAD -- package.json | grep '"version"'; then
-            echo "❌ Version not bumped in package.json!"
-            exit 1
-          fi
+      - name: Version Bump Check
+  run: |
+    if ! git diff $PREV_SHA HEAD -- package.json | grep '"version"'; then
+      echo "❌ Version not bumped in package.json!"
+      exit 1
+    fi
+

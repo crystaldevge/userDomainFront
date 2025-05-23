@@ -68,5 +68,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/angular-frontend:latest
-            ghcr.io/${{ github.repository_owner }}/angular-frontend:${{ github.run_number }}
+            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
+            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}

@@ -25,10 +25,8 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
-    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "rxjs": "~7.8.0",
-    "style-loader": "^4.0.0",
     "tslib": "^2.3.0",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1",
@@ -41,12 +39,17 @@
     "@angular/cli": "^19.2.4",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
+    "css-loader": "^7.1.2",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "sass": "^1.89.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "to-string-loader": "^1.2.0",
     "typescript": "~5.7.2"
   }
 }

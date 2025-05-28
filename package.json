@@ -53,5 +53,12 @@
     "style-loader": "^4.0.0",
     "to-string-loader": "^1.2.0",
     "typescript": "~5.7.2"
-  }
+  },
+  
+  "exclude": [
+    "**/*.spec.ts",
+    "test.ts"
+  ]
+
+
 }

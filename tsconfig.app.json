@@ -4,12 +4,19 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": ["jest"]
+  },
+   "angularCompilerOptions": {
+    "strictTemplates": true,
+    "compilationMode": "partial",
+    "strictInjectionParameters": true,
+    "enableIvy": true
   },
   "files": [
     "src/main.ts"
   ],
   "include": [
+    "src/**/*.ts",
     "src/**/*.d.ts"
   ]
 }

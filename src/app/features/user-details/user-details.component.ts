@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
   standalone: false,
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.scss'
+  styleUrls: ['./user-details.component.scss']
 })
 export class UserDetailsComponent {
 
 
-  constructor(private router: Router) {}
+  constructor(@Inject(Router) private router: Router) {}
 
 
 onReturn(): void{

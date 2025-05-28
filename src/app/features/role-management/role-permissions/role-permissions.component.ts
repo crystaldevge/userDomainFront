@@ -7,7 +7,7 @@ import { NotificationService } from '../../../core/services/notification.service
   selector: 'app-role-permissions',
   standalone: false,
   templateUrl: './role-permissions.component.html',
-  styleUrl: './role-permissions.component.scss',
+  styleUrls: ['./role-permissions.component.scss'],
 })
 export class RolePermissionsComponent {
   roleId!: number;

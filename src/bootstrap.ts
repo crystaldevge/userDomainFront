@@ -7,4 +7,18 @@ import './styles.scss';
 platformBrowser().bootstrapModule(AppModule, {
   ngZoneEventCoalescing: true,
 })
-  .catch(err => console.error(err));
+
+export function mount() {
+  platformBrowser().bootstrapModule(AppModule).then(ref => {
+    
+        platformBrowser().bootstrapModule(AppModule, {
+            ngZoneEventCoalescing: true,
+       })
+
+        .catch(err => console.error(err));
+    // Inject Angular app into the target element
+  });
+}
+
+
+  

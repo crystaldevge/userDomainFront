@@ -10,6 +10,7 @@ import { NotificationService } from '../../core/services/notification.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent {
   loginForm: FormGroup;
   hide: boolean = true;

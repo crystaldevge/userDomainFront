@@ -6,7 +6,7 @@ import { Notification } from '../../../core/interfaces/notification.interface';
   selector: 'app-notification',
   standalone: false,
   templateUrl: './notification.component.html',
-  styleUrl: './notification.component.scss',
+  styleUrls: ['./notification.component.scss'],
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[] = [];

@@ -7,7 +7,7 @@ import { NotificationService } from '../../../core/services/notification.service
   selector: 'app-role-modules',
   standalone: false,
   templateUrl: './role-modules.component.html',
-  styleUrl: './role-modules.component.scss'
+  styleUrls: ['./role-modules.component.scss']
 })
 export class RoleModulesComponent implements OnInit {
   roleName!: string;

@@ -7,7 +7,7 @@ import { ModuleService } from '../../core/services/module.service';
   selector: 'app-user-profile',
   standalone: false,
   templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss',
+  styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent implements OnInit {
   userProfile: any = {};

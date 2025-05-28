@@ -8,7 +8,7 @@ import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/c
   selector: 'app-role-management',
   standalone: false,
   templateUrl: './role-management.component.html',
-  styleUrl: './role-management.component.scss',
+  styleUrls: ['./role-management.component.scss'],
 })
 export class RoleManagementComponent {
   roles: any[] = []; // Initialize roles array

@@ -1,29 +1,27 @@
-import '@angular/compiler'
+import '@angular/compiler';
 import 'zone.js';
-import { platformBrowser } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import './styles.scss';
- 
-// platformBrowser().bootstrapModule(AppModule, {
-//   ngZoneEventCoalescing: true,
-// })
- 
-export function mount() {
-  platformBrowser().bootstrapModule(AppModule).then(ref => {
-   
-        platformBrowser().bootstrapModule(AppModule, {
-            ngZoneEventCoalescing: true,
-       })
- 
-        .catch(err => console.error(err));
-    // Inject Angular app into the target element
-  });
+
+/**
+ * Mount Angular into a custom element or fallback to default <app-root>
+ */
+function mount(selector: string = 'app-root') {
+  if (!document.querySelector(selector)) {
+    const el = document.createElement(selector);
+    document.body.appendChild(el);
+  }
+
+  platformBrowserDynamic().bootstrapModule(AppModule, {
+    ngZoneEventCoalescing: true,
+  }).catch(err => console.error(err));
 }
- 
+
+// For local dev mode
 if (document.querySelector('app-root')) {
-  mount();
-  // mount(document.querySelector('app-hello-world')!);
+  mount('app-root');
 }
- 
- 
- 
+
+
+export default { mount };

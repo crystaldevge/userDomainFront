@@ -8,7 +8,6 @@
   },
    "angularCompilerOptions": {
     "strictTemplates": true,
-    "compilationMode": "partial",
     "strictInjectionParameters": true,
     "enableIvy": true
   },

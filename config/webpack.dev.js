@@ -88,9 +88,8 @@ const devConfig = {
     }),
     new AngularWebpackPlugin({
       tsconfig: path.resolve(__dirname, "../tsconfig.app.json"),
-      jitMode: false,
+      jitMode: true,
       directTemplateLoading: true,
-      jitter: false,
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",

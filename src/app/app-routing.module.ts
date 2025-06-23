@@ -5,12 +5,12 @@ import { authGuardGuard } from './core/guards/auth-guard.guard';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {
-    path: 'login',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-    canActivate: [guestGuardGuard],
-  },
+  { path: '', redirectTo: '/profile', pathMatch: 'full' },
+  // {
+  //   path: 'login',
+  //   loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  //   canActivate: [guestGuardGuard],
+  // },
   {
     path: 'dashboard',
     loadChildren: () =>

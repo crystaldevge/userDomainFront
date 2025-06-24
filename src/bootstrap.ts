@@ -7,7 +7,7 @@ import './styles.scss';
 /**
  * Mount Angular into a custom element or fallback to default <app-root>
  */
-function mount(selector: string = 'app-root') {
+function mount(selector: string = 'app-dashboard') {
   if (!document.querySelector(selector)) {
     const el = document.createElement(selector);
     document.body.appendChild(el);

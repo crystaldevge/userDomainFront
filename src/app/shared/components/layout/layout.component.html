@@ -7,10 +7,10 @@
 
   <!-- Main Content -->
   <div class="sidenav-content">
-    <app-header></app-header>
+    <!-- <app-header></app-header> -->
     <div class="content">
       <!-- Toggle Button -->
-      <router-outlet></router-outlet> 
+      <!-- <router-outlet></router-outlet>  -->
       <button mat-button (click)="drawer.toggle()" class="toggle-button">
         <mat-icon>{{
           drawer.opened ? "keyboard_arrow_left" : "keyboard_arrow_right"
@@ -18,6 +18,6 @@
       </button>
       <ng-content></ng-content>
     </div>
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
   </div>
 </mat-drawer-container>

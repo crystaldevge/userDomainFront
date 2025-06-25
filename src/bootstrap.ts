@@ -7,21 +7,30 @@ import './styles.scss';
 /**
  * Mount Angular into a custom element or fallback to default <app-root>
  */
-function mount(selector: string = 'app-root') {
-  if (!document.querySelector(selector)) {
-    const el = document.createElement(selector);
-    document.body.appendChild(el);
+function mount(containerId: string = 'app-dashboard') {
+  const container = document.getElementById(containerId);
+
+  if (!container) {
+    console.error(`[mount] Element with id "${containerId}" not found`);
+    return;
   }
 
-  platformBrowserDynamic().bootstrapModule(AppModule, {
-    ngZoneEventCoalescing: true,
-  }).catch(err => console.error(err));
+  if (!container.querySelector('app-root')) {
+    const appRoot = document.createElement('app-root');
+    container.appendChild(appRoot);
+  }
+
+  console.log('Bootstrapping Angular...');
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .catch(err => console.error(err));
 }
 
+
 // For local dev mode
-if (document.querySelector('app-root')) {
-  mount('app-root');
-}
+// if (document.querySelector('app-root')) {
+//   mount('app-root');
+// }
 
 
 export default { mount };

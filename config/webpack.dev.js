@@ -59,18 +59,18 @@ const devConfig = {
         use: 'raw-loader',
       },
       {
-        test: /\.scss$/,
-        oneOf: [
-          {
-            resourceQuery: /ngResource/, // Angular component styles
-            use: ["to-string-loader", "css-loader", "sass-loader"],
-          },
-          {
-            // Global SCSS files
-            use: ["style-loader", "css-loader", "sass-loader"],
-          },
-        ],
-      },
+  test: /\.scss$/,
+  oneOf: [
+    {
+      resourceQuery: /ngResource/,
+      use: ['to-string-loader', 'css-loader', 'sass-loader'],
+    },
+    {
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+    },
+  ],
+}
+
     ],
   },
 

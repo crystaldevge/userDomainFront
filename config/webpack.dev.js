@@ -9,7 +9,7 @@ const devConfig = {
   mode: "development",
   entry: "./src/main.ts",
   output: {
-    publicPath: "http://localhost:4200/",
+    publicPath: "http://user.local.dev.ge/",
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../dist"),
     clean: true,

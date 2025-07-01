@@ -6,18 +6,13 @@ import { UserProfileComponent } from './features/user-profile/user-profile.compo
 
 const routes: Routes = [
   { path: '', redirectTo: '/profile', pathMatch: 'full' },
-  // {
-  //   path: 'login',
-  //   loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-  //   canActivate: [guestGuardGuard],
-  // },
   {
     path: 'dashboard',
     loadChildren: () =>
       import('./features/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
       ),
-    canActivate: [authGuardGuard],
+    
   },
   {
     path: 'profile',
@@ -40,7 +35,7 @@ const routes: Routes = [
         (m) => m.RoleManagementModule
       ),
   },
-  { path: '**', redirectTo: '/login' }, // Wildcard route for undefined paths
+
 ];
 
 @NgModule({

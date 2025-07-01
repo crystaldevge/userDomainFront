@@ -26,8 +26,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
         if (error.status === 401) {
           // Handle 401 Unauthorized
           this.notify.error('Unauthorized: Redirecting to login page.');
-          localStorage.removeItem('token'); // Clear the token
-          this.router.navigate(['/login']); // Redirect to login page
+        
         } else if (error.status === 403) {
           // Handle 403 Forbidden
           this.notify.warning(

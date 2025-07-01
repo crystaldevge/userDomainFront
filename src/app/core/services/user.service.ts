@@ -16,12 +16,12 @@ export class UserService {
 
   getUserProfile(): Observable<any> {
     return this.http
-      .get(`${this.url}/profile`, { withCredentials: true })
+      .get(`${this.url}/profile`)
       .pipe(catchError(this.handleError));
   }
   getUsers(skip: number, fetch: number): Observable<any> {
     const url = `${this.url}/users/?skip=${skip}&fetch=${fetch}`;
-    return this.http.get(url, { withCredentials: true }).pipe(catchError(this.handleError));
+    return this.http.get(url).pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log('Error occurred:', error); // Log the error for debugging

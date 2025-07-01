@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://api.dev.crystal.ge/api',
+    apiUrl: 'http://api.local.dev.ge/api',
   };

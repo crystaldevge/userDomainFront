@@ -23,32 +23,47 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.loadUserProfile();
   }
+showPermissions = false;
+showModules = false;  
 
-  loadPermissions(): void {
+
+
+loadPermissions(): void {
+  if (!this.showPermissions) {
     this.authService.getPermissions().subscribe({
       next: (per) => {
         this.userPermissions = Array.isArray(per.data.permissions)
           ? per.data.permissions
           : per.data.permissions.permissions || [];
+        this.showPermissions = true;
       },
       error: (err) => {
         console.error('Error fetching permissions:', err);
       },
     });
+  } else {
+    this.showPermissions = false;
   }
+}
 
-  loadModules(): void {
+
+loadModules(): void {
+  if (!this.showModules) {
     this.moduleService.getModules().subscribe({
       next: (modules) => {
         this.userModules = Array.isArray(modules.data.modules)
           ? modules.data.modules
           : modules.data.modules.modules || [];
+        this.showModules = true;
       },
       error: (err) => {
         console.error('Error fetching modules:', err);
       },
     });
+  } else {
+    this.showModules = false;
   }
+}
 
   loadUserProfile(): void {
     this.userService.getUserProfile().subscribe({

@@ -23,7 +23,7 @@
           <!-- <mat-card-title>Permissions</mat-card-title> -->
           <button mat-raised-button color="primary" (click)="loadPermissions()">Load Permissions</button>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content *ngIf="showPermissions">
           <mat-list>
             <mat-list-item *ngFor="let permission of userPermissions">
               {{ permission.permissionName }}
@@ -37,7 +37,7 @@
           <!-- <mat-card-title>Modules</mat-card-title> -->
           <button mat-raised-button color="primary" (click)="loadModules()">Load Modules</button>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content *ngIf="showModules">
           <mat-list>
             <mat-list-item *ngFor="let module of userModules">
               {{ module.moduleName }} {{ module.isActive ? '(Active)' : '(Inactive)' }}

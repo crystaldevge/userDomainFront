@@ -1,4 +1,7 @@
 .user-profile {
+    > :nth-child(3) {
+      min-height: 35vh;
+    }
     h1 {
       text-align: center;
       margin-bottom: 20px;

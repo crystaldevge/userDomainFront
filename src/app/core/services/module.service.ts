@@ -25,7 +25,7 @@ export class ModuleService {
 
   getModules(): Observable<any> {
     return this.http
-      .get(`${this.url}/module/authorized/modules`)
+      .get(`${this.url}/module/authorized/modules`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -34,7 +34,7 @@ export class ModuleService {
   }
 
   setUserRoleModules(data: { roleId: number; activeModuleIds: number[] }): Observable<any> {
-    return this.http.post(`${this.url}/module/setUserModuleByRoleId`, data);
+    return this.http.post(`${this.url}/module/setUserModuleByRoleId`, data, { withCredentials: true });
   }
 
 }

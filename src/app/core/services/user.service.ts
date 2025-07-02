@@ -23,7 +23,7 @@ export class UserService {
   }
   getUsers(skip: number, fetch: number): Observable<any> {
     const url = `${this.url}/users/?skip=${skip}&fetch=${fetch}`;
-    return this.http.get(url).pipe(catchError(this.handleError));
+    return this.http.get(url, { withCredentials: true }).pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log('Error occurred:', error); // Log the error for debugging

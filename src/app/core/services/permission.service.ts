@@ -13,12 +13,12 @@ export class PermissionService {
     console.log(`${this.url}/${roleId}/permissions`);
     
     return this.http.get<any>(
-      `${this.url}/${roleId}/permissions`
+      `${this.url}/${roleId}/permissions`, { withCredentials: true }
     );
   }
 
   setUserPermissions(data: any): Observable<any> {
-    return this.http.post(`${this.url}/permission/setUserPermission`, data);
+    return this.http.post(`${this.url}/permission/setUserPermission`, data, { withCredentials: true });
   }
   
 

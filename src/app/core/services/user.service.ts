@@ -9,6 +9,8 @@ import { NotificationService } from './notification.service';
 })
 export class UserService {
   private url = `${environment.apiUrl}/users`;
+  
+  
   constructor(
     private http: HttpClient,
     private notify: NotificationService
@@ -16,7 +18,7 @@ export class UserService {
 
   getUserProfile(): Observable<any> {
     return this.http
-      .get(`${this.url}/profile`)
+      .get(`${this.url}/profile`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
   getUsers(skip: number, fetch: number): Observable<any> {

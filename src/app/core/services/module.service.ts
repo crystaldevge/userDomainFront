@@ -18,7 +18,7 @@ export class ModuleService {
 
   getModulesByRoleId(roleId: number): Observable<any> {
     return this.http.get<any>(
-      `${this.url}/module/${roleId}`
+      `${this.url}/module/${roleId}`, { withCredentials: true }
     );
      
   }

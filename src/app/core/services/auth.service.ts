@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   getPermissions(): Observable<any> {
-    return this.http.get(`${this.url}/users/authorized/permissions`);
+    return this.http.get(`${this.url}/users/authorized/permissions`, { withCredentials: true });
   }
 
   login(username: string, password: string): Observable<any> {

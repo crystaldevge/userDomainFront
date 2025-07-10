@@ -83,6 +83,7 @@ const devConfig = {
       filename: "remoteEntry.js",
       exposes: {
         "./UserDomainApp": "./src/bootstrap.ts",
+        './BaseInfoService': './src/app/shared/base-info.service.ts'
       },
       shared: packageJson.dependencies,
     }),

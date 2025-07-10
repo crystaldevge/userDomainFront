@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { UserService } from '../../core/services/user.service';
 import { ModuleService } from '../../core/services/module.service';
+import  BaseInfoService  from '../../shared/base-info.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -69,6 +70,9 @@ loadModules(): void {
     this.userService.getUserProfile().subscribe({
       next: (profile) => {
         this.userProfile = profile.data.userProfile;
+        console.log('User Profile:', this.userProfile);
+        
+        BaseInfoService.setBaseInfo(this.userProfile);
       },
       error: (err) => {
         console.error('Error fetching user profile:', err);

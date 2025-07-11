@@ -85,7 +85,26 @@ const devConfig = {
         "./UserDomainApp": "./src/bootstrap.ts",
         './BaseInfoService': './src/app/shared/base-info.service.ts'
       },
-      shared: packageJson.dependencies,
+      // shared: packageJson.dependencies,
+            shared: {
+        // Angular core packages
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: "auto" },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: "auto" },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: "auto" },
+        "@angular/platform-browser": { singleton: true, strictVersion: true, requiredVersion: "auto" },
+        "@angular/platform-browser-dynamic": { singleton: true, strictVersion: true, requiredVersion: "auto" },
+        "@angular/forms": { singleton: true, strictVersion: true, requiredVersion: "auto" },
+
+        // React side (main app-თან რომ გაუზიაროს იგივე ინსტანციები)
+        react: { singleton: true, eager: true, requiredVersion: "^18.2.0" },
+        "react-dom": { singleton: true, eager: true, requiredVersion: "^18.2.0" },
+        "react-router-dom": { singleton: true, eager: true, requiredVersion: "^6.23.0" },
+
+        // სხვა საჭიროები
+        rxjs: { singleton: true, strictVersion: true, requiredVersion: "auto" },
+        tslib: { singleton: true, strictVersion: true, requiredVersion: "auto" }
+      }
+
     }),
     new AngularWebpackPlugin({
       tsconfig: path.resolve(__dirname, "../tsconfig.app.json"),

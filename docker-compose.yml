@@ -34,7 +34,7 @@
 
 services:
   frontend:
-    image: ghcr.io/crystaldevge/userdomainfront:53
+    image: ghcr.io/crystaldevge/userdomainfront:54
     container_name: userdomainfront
     ports:
       - "4200:4200"

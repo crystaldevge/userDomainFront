@@ -96,9 +96,9 @@ const devConfig = {
         "@angular/forms": { singleton: true, strictVersion: true, requiredVersion: "auto" },
 
         // React side (main app-თან რომ გაუზიაროს იგივე ინსტანციები)
-        react: { singleton: true, eager: true, requiredVersion: "^18.2.0" },
-        "react-dom": { singleton: true, eager: true, requiredVersion: "^18.2.0" },
-        "react-router-dom": { singleton: true, eager: true, requiredVersion: "^6.23.0" },
+        react: { singleton: true, eager: true, requiredVersion: '^19.1.0' },
+        "react-dom": { singleton: true, eager: true, requiredVersion: '^19.1.0' },
+        "react-router-dom": { singleton: true, eager: true, requiredVersion: '^7.6.3' },
 
         // სხვა საჭიროები
         rxjs: { singleton: true, strictVersion: true, requiredVersion: "auto" },

@@ -15,6 +15,17 @@
   button {
     margin-left: 8px;
   }
+  .mat-mdc-list-base {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    border-style: solid;
+    border-width: 0;
+    background-color: var(--mdc-elevated-card-container-color, var(--mat-sys-surface-container-low));
+    border-color: var(--mdc-elevated-card-container-color, var(--mat-sys-surface-container-low));
+    border-radius: var(--mdc-elevated-card-container-shape, var(--mat-sys-corner-medium));
+    box-shadow: var(--mdc-elevated-card-container-elevation, var(--mat-sys-level1));
+}
   .role-container {
     display: flex;
     justify-content: space-between;
@@ -28,8 +39,9 @@
     font-weight: 500; /* Optional: Make the text slightly bold */
     cursor: pointer;
     transition: transform 0.3s;
-
-  
+  }
+  .mdc-list{
+    padding: 8px;
   }
 
   .manage-role:hover {

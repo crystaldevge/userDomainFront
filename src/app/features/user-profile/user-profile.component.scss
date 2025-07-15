@@ -1,10 +1,17 @@
 .user-profile {
-    > :nth-child(3) {
-      min-height: 35vh;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    // > :nth-child(3) {
+    //   min-height: 35vh;
+    // }
     h1 {
       text-align: center;
       margin-bottom: 20px;
+    }
+    .mat-mdc-card-header{
+      padding: 0;
     }
   
     h2 {

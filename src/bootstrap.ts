@@ -36,8 +36,12 @@ function mount(containerId: string = 'app-dashboard') {
 }
  
 // ✅ ლოკალური სტარტის შემთხვევაში auto-mount
-if (window.location.hostname === 'user.local.dev.ge' && !document.getElementById('app-dashboard')) {
-  mount('body'); // fallback fallback mount
+// if (window.location.hostname === 'user.local.dev.ge' && !document.getElementById('app-dashboard')) {
+//   mount('body'); // fallback fallback mount
+// }
+
+if (!document.getElementById('app-dashboard')) {
+  mount('body');
 }
  
 export default { mount };

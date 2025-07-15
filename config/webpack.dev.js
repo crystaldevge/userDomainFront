@@ -9,7 +9,7 @@ const devConfig = {
   mode: "development",
   entry: "./src/main.ts",
   output: {
-    publicPath: "/",
+    publicPath: "http://portaluserdomain-front-dev.crystal.ge/",
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../dist"),
     clean: true,
